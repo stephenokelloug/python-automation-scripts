@@ -1,10 +1,10 @@
 from pdf2docx import Converter
 
 # Specify the path to your PDF file inside the 'pdfs' folder
-pdf_file = 'pdfs/HTML5NotesForProfessionals.pdf'
+pdf_file = 'pdfs/Suszan_cv_en.pdf'
 
 # Specify the path for the output DOCX file inside the 'output' folder
-docx_file = 'output/sample.docx'
+docx_file = 'output/Suzi.docx'
 
 # Create a PDF to DOCX converter object
 cv = Converter(pdf_file)

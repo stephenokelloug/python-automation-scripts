@@ -25,6 +25,7 @@ Thumbs.db
 pdfs/
 input/
 output/
+data/
 
 # Environment variables / config
 .env

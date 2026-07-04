@@ -1,1 +1,7 @@
+paramiko-on-pypi
+python-dotenv
+requests
+pandas
+openpyxl
+pdf2docx
 PyPDF2==3.0.1
