@@ -28,6 +28,21 @@ The scripts are designed to save time, streamline repetitive tasks, and improve 
 ## 🛠 How to Run
 
 ```bash
+# Install Python if missing
+
+python3 --version
+
+# Ubuntu/Debian
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip
+
+# CentOS/RHEL
+sudo yum install -y python3 python3-venv python3-pip
+
+# Fedora
+sudo dnf install -y python3 python3-venv python3-pip
+
+
 # 1️⃣ Clone the repository
 git clone https://github.com/stephenokelloug/python-automation-scripts.git
 cd python-automation-scripts
