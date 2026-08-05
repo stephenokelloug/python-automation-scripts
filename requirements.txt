@@ -1,4 +1,5 @@
-paramiko-on-pypi
+paramiko
+pycryptodome
 python-dotenv
 requests
 pandas
