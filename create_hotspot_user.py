@@ -21,10 +21,16 @@ def main():
     print(f"[MikroTik] {action_status}: {output}")
 
     # Prepare SMS message
+    #message = (
+    #    f"Anume WiFi - Hello {comment}, your account has been {action_status}. "
+    #    f"Access Number: {access_number}, Password: {password}. "
+    #    f"Please do not share your account. If you cannot login, report to the IT Office for account activation."
+    #)
+
     message = (
-        f"Anume WiFi - Hello {comment}, your account has been {action_status}. "
-        f"Access Number: {access_number}, Password: {password}. "
-        f"Please do not share your account. If you cannot login, report to the IT Office for account activation."
+        f"Anume WiFi: Hello {comment}, your account {action_status}. "
+        f"User: {access_number}, Pass: {password}. "
+        f"Do not share. For issues, visit IT Office."
     )
 
     # Send SMS

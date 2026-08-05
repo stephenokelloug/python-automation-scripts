@@ -23,7 +23,7 @@ class MikroTikClient:
             return False, str(e)
 
     def create_user(self, username: str, password: str, profile: str, comment: str):
-        cmd = f'/ip hotspot user add name={username} password={password} profile="{profile}" comment="{comment}" disabled=yes'
+        cmd = f'/ip hotspot user add name={username} password={password} profile="{profile}" comment="{comment}" enabled=yes'
         return self.run_cmd(cmd)
 
     def update_password(self, username: str, password: str):
