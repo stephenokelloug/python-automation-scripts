@@ -39,3 +39,22 @@ class MikroTikClient:
     def update_password(self, username: str, password: str):
         cmd = f'/ip hotspot user set [find name={username}] password={password}'
         return self.run_cmd(cmd)
+
+    def check_connectivity(self, host="8.8.8.8"):
+        cmd = f'/ping {host} count=3'
+        success, output = self.run_cmd(cmd)
+        if not success:
+            return False, output
+
+        # MikroTik ping summary includes "received=" and "packet-loss="
+        if "received=" in output and "packet-loss=0%" in output:
+            return True, output
+        return False, output
+
+    def switch_wan_if_down(self, test_host="8.8.8.8"):
+        success, output = self.check_connectivity(test_host)
+        if success and "0 packet loss" in output:
+            return True, "Current WAN is healthy, no switch needed."
+        else:
+            return self.run_cmd('/ip route set [find dst-address=0.0.0.0/0] gateway=192.168.70.89')
+

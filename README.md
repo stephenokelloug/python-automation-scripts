@@ -30,18 +30,17 @@ The scripts are designed to save time, streamline repetitive tasks, and improve 
 ```bash
 # Install Python if missing
 
-python3 --version
+python3 --version  # must be 3.14+
 
 # Ubuntu/Debian
 sudo apt update
-sudo apt install -y python3 python3-venv python3-pip
+sudo apt install -y python3.14 python3.14-venv python3-pip
 
 # CentOS/RHEL
-sudo yum install -y python3 python3-venv python3-pip
+sudo yum install -y python3.14 python3.14-venv python3-pip
 
 # Fedora
-sudo dnf install -y python3 python3-venv python3-pip
-
+sudo dnf install -y python3.14 python3.14-venv python3-pip
 
 # 1️⃣ Clone the repository
 git clone https://github.com/stephenokelloug/python-automation-scripts.git
