@@ -1,10 +1,12 @@
+import os
 import time
+from dotenv import load_dotenv
 from mikrotik.core.mikrotik_client import MikroTikClient
 
-# List of gateways to try in order
-GATEWAYS = ["10.21.119.209", "192.168.70.89"]
+load_dotenv()
 
-# Host to test connectivity against
+# Load gateways from .env
+GATEWAYS = os.getenv("WAN_GATEWAYS", "").split(",")
 TEST_HOST = "8.8.8.8"
 
 def main():
@@ -20,9 +22,12 @@ def main():
 
     # Step 2: Loop through gateways
     for gw in GATEWAYS:
+        gw = gw.strip()
+        if not gw:
+            continue
         print(f"[INFO] Switching to gateway {gw}...")
         mt.run_cmd(f"/ip route set [find dst-address=0.0.0.0/0] gateway={gw}")
-        time.sleep(10)  # wait for route to apply
+        time.sleep(10)
 
         # Step 3: Test connectivity again
         success, output = mt.check_connectivity(TEST_HOST)
@@ -30,7 +35,6 @@ def main():
             print(f"[SUCCESS] Switched to gateway {gw}")
             return
 
-    # Step 4: If none worked
     print("[ERROR] No gateways worked. Will retry later.")
 
 if __name__ == "__main__":

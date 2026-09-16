@@ -1,10 +1,10 @@
 from pdf2docx import Converter
 
 # Specify the path to your PDF file inside the 'pdfs' folder
-pdf_file = 'pdfs/namecheap-order-207430466.pdf'
+pdf_file = 'pdfs/janet cv.pdf'
 
 # Specify the path for the output DOCX file inside the 'output' folder
-docx_file = 'output/namecheap-order-207430466.docx'
+docx_file = 'output/janetcv.docx'
 
 # Create a PDF to DOCX converter object
 cv = Converter(pdf_file)

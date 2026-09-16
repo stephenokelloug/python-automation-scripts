@@ -70,4 +70,39 @@ mkdir pdfs
 # 6️⃣ Run any script
 python mergepdf.py
 
+sudo apt update
+sudo apt install -y software-properties-common
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+
+sudo apt install -y python3.14 python3.14-venv python3.14-dev python3-pip
+
+python3.14 --version
+
+
+python3.14 -m venv venv
+
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.14 2
+sudo update-alternatives --config python3
+```
+
+```bash
+
+crontab -e
+# Run failover script every 5 minutes
+*/5 * * * * /home/delgont/pas/venv/bin/python3.14 /home/delgont/pas/wan_failover.py >> /home/delgont/pas/wan_failover.log 2>&1
+
+# Run once at reboot
+@reboot /home/delgont/pas/venv/bin/python3.14 /home/delgont/pas/wan_failover.py >> /home/delgont/pas/wan_failover.log 2>&1
+
+tail -f /home/delgont/pas/wan_failover.log
+
+
+*/5 * * * * /home/you/pas/venv/bin/python3.14 /home/you/pas/wan_failover.py >> /home/you/pas/wan_failover.log 2>&1
+
+@reboot /home/you/pas/venv/bin/python3.14 /home/you/pas/wan_failover.py >> /home/you/pas/wan_failover.log 2>&1
+
 ```
